@@ -11,6 +11,33 @@ function getCell(rowIndex, colIndex) {
   return cell;
 }
 
+function ResizeObserverMock(callback) {
+  let timeout;
+
+  return {
+    observe: (element) => {
+      // Simulates the async behavior of the native ResizeObserver
+      timeout = setTimeout(() => {
+        callback([{ borderBoxSize: [{ blockSize: element.clientHeight }] }]);
+      });
+    },
+    disconnect: () => {
+      clearTimeout(timeout);
+    },
+    unobserve: () => {},
+  };
+}
+
+const originalResizeObserver = window.ResizeObserver;
+
+beforeEach(() => {
+  window.ResizeObserver = ResizeObserverMock;
+});
+
+afterEach(() => {
+  window.ResizeObserver = originalResizeObserver;
+});
+
 it('DataGrid', async () => {
   render(<DataGrid />);
 
