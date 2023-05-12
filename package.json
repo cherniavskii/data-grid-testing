@@ -29,7 +29,7 @@
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.13.0",
-    "@mui/x-data-grid": "https://pkg.csb.dev/mui/mui-x/commit/8695c6af/@mui/x-data-grid",
+    "@mui/x-data-grid": "https://pkg.csb.dev/mui/mui-x/commit/d36d171c/@mui/x-data-grid",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
